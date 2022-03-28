@@ -1,0 +1,20 @@
+hash: b4ad45e8e252525f9c7993a1053fe02f7f248963810ea96b1b382721672f980f
+updated: 2022-03-29T00:40:31.162642515+01:00
+imports:
+- name: github.com/elazarl/goproxy
+  version: 894aeddb713ece400b68656e1ca23f9488b9ca86
+- name: github.com/mrkschan/cuttle
+  version: d4c681411595d0e6edf2c33786b04f081285b333
+  subpackages:
+  - cuttle
+- name: github.com/Sirupsen/logrus
+  version: 85981c045988a3ebe607e2f5b8a6499d86e0ddac
+- name: golang.org/x/sys
+  version: d36c6a25d886e7c9975d5bf247ac24887ba6da37
+  subpackages:
+  - internal/unsafeheader
+  - unix
+  - windows
+- name: gopkg.in/yaml.v2
+  version: 7649d4548cb53a614db133b2a8ac1f31859dda8c
+testImports: []
