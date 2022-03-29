@@ -1,5 +1,5 @@
-hash: b4ad45e8e252525f9c7993a1053fe02f7f248963810ea96b1b382721672f980f
-updated: 2022-03-29T00:40:31.162642515+01:00
+hash: 04d95a908fda53f11da5e3fbc54741ec5550c124ce76bfe013b2a32794110ff1
+updated: 2022-03-29T01:08:10.6699849+01:00
 imports:
 - name: github.com/elazarl/goproxy
   version: 894aeddb713ece400b68656e1ca23f9488b9ca86
@@ -8,6 +8,8 @@ imports:
   subpackages:
   - cuttle
 - name: github.com/sirupsen/logrus
+  version: 85981c045988a3ebe607e2f5b8a6499d86e0ddac
+- name: github.com/Sirupsen/logrus
   version: 85981c045988a3ebe607e2f5b8a6499d86e0ddac
 - name: golang.org/x/sys
   version: d36c6a25d886e7c9975d5bf247ac24887ba6da37
