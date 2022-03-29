@@ -10,8 +10,6 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/elazarl/goproxy"
 	yaml "gopkg.in/yaml.v2"
-
-	"github.com/mrkschan/cuttle/cuttle"
 )
 
 func main() {
