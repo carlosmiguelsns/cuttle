@@ -111,8 +111,19 @@ func main() {
 				return r, goproxy.NewResponse(r, goproxy.ContentTypeText, http.StatusForbidden, "Forbidden")
 			}
 
+			// Getting Client's IP Addresses from http.Request
+			IPAddress := r.Header.Get("X-Real-Ip")
+			if IPAddress == "" {
+				// The X-Forwarded-For (XFF) request header is a de-facto standard header for identifying the originating IP address of a client connecting to a web server through a proxy server.
+				IPAddress = r.Header.Get("X-Forwarded-For")
+			}
+			if IPAddress == "" {
+				IPAddress = r.RemoteAddr
+			}
+
 			// Permission granted, forward request.
-			log.Infof("Main: Forwarding request to %s", r.URL)
+			log.Infof("Main: %s - Forwarding request to %s", IPAddress, r.URL)
+
 			return r, nil
 		})
 
