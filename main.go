@@ -95,10 +95,8 @@ func main() {
 			// parse user agent string
 			ua := user_agent.New(r.UserAgent())
 			bro_name, _ := ua.Browser()
-			// allowedUA := strings.Contains(r.UserAgent(), "ISV|BindTuning|BindTuning Provisioning/1.0") || strings.Contains(r.UserAgent(), "NONISV|SharePointPnP")
-			allowedUA := false
+			allowedUA := strings.Contains(r.UserAgent(), "ISV|BindTuning|BindTuning Provisioning/1.0") || strings.Contains(r.UserAgent(), "NONISV|SharePointPnP")
 			if ua.Bot() || bro_name == "curl" || !allowedUA {
-				log.Println(strings.Contains(r.UserAgent(), "ISV|BindTuning|BindTuning Provisioning/1.0"))
 				return r, goproxy.NewResponse(r, goproxy.ContentTypeText, http.StatusForbidden, "Don't waste your time!")
 			}
 
