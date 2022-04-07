@@ -121,8 +121,14 @@ func main() {
 				IPAddress = r.RemoteAddr
 			}
 
+			// Getting Client's UserAgent from http.Request
+			UserAgent := r.Header.Get("User-Agent")
+			if UserAgent == "" {
+				UserAgent = "No User-Agent defined"
+			}
+
 			// Permission granted, forward request.
-			log.Infof("Main: %s - Forwarding request to %s", IPAddress, r.URL)
+			log.Infof("Main: UserAgent: %s - IP: %s - Forwarding request to %s", UserAgent, IPAddress, r.URL)
 
 			return r, nil
 		})
