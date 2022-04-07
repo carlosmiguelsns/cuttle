@@ -89,6 +89,14 @@ func main() {
 	proxy.OnRequest().HandleConnect(httpsHandler)
 	proxy.OnRequest().DoFunc(
 		func(r *http.Request, ctx *goproxy.ProxyCtx) (*http.Request, *http.Response) {
+			// Transparent HTTP proxy with filter by user agent
+			// parse user agent string
+			ua := user_agent.New(r.UserAgent())
+			bro_name, _ := ua.Browser()
+			if ua.Bot() || bro_name == "curl" {
+				return r, goproxy.NewResponse(r, goproxy.ContentTypeText, http.StatusForbidden, "Don't waste your time!")
+			}
+
 			var zone *cuttle.Zone
 			for _, z := range zones {
 				if z.MatchHost(r.URL.Host) && z.MatchPath(r.URL.Path) {
@@ -121,14 +129,8 @@ func main() {
 				IPAddress = r.RemoteAddr
 			}
 
-			// Getting Client's UserAgent from http.Request
-			UserAgent := r.Header.Get("User-Agent")
-			if UserAgent == "" {
-				UserAgent = "No User-Agent defined"
-			}
-
 			// Permission granted, forward request.
-			log.Infof("Main: UserAgent: %s - IP: %s - Forwarding request to %s", UserAgent, IPAddress, r.URL)
+			log.Infof("Main: UserAgent: %s - IP: %s - Forwarding request to %s", ua, IPAddress, r.URL)
 
 			return r, nil
 		})
