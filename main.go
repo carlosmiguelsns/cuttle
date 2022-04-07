@@ -11,6 +11,7 @@ import (
 	"github.com/elazarl/goproxy"
 	yaml "gopkg.in/yaml.v2"
 
+	"github.com/mssola/user_agent"
 	"github.com/carlosmiguelsns/cuttle/cuttle"
 )
 
