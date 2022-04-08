@@ -98,7 +98,8 @@ func main() {
 			bro_name, _ := ua.Browser()
 			allowed_ua := strings.Contains(req_ua, "ISV|BindTuning") || strings.Contains(req_ua, "NONISV|SharePointPnP")
 			if ua.Bot() || bro_name == "curl" || !allowed_ua {
-				log.Println(http)
+				log.Println(http.Request)
+				log.Println(http.Response)
 				return r, goproxy.NewResponse(r, goproxy.ContentTypeText, http.StatusForbidden, "Don't waste your time!")
 			}
 
