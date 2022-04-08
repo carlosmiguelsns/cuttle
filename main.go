@@ -101,10 +101,6 @@ func main() {
 				return r, goproxy.NewResponse(r, goproxy.ContentTypeText, http.StatusForbidden, "Don't waste your time!")
 			}
 
-			if(allowed_ua) {
-				log.Println(r.URL)
-			}
-
 			var zone *cuttle.Zone
 			for _, z := range zones {
 				if z.MatchHost(r.URL.Host) && z.MatchPath(r.URL.Path) {
