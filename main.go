@@ -86,7 +86,6 @@ func main() {
 			Action:    goproxy.ConnectMitm,
 			TLSConfig: goproxy.TLSConfigFromCA(&cert),
 		}
-		log.Println(host)
 		return action, host
 	}
 	proxy.OnRequest().HandleConnect(httpsHandler)
@@ -103,7 +102,7 @@ func main() {
 			}
 
 			if(allowed_ua) {
-				log.Println(r.URL.Host)
+				log.Println(r.URL)
 			}
 
 			var zone *cuttle.Zone
