@@ -134,7 +134,8 @@ func main() {
 			}
 
 			// Permission granted, forward request.
-			log.Infof("UserAgent: %s - IP: %s - Forwarding request to %s", ua, IPAddress, r.URL)
+			// log.Infof("UserAgent: %s - IP: %s - Forwarding request to %s", ua, IPAddress, r.URL)
+			log.Infof("IP: %s - Forwarding request to %s", ua, IPAddress, r.URL)
 
 			return r, nil
 		})
