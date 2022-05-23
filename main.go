@@ -5,7 +5,7 @@ import (
 	"flag"
 	"io/ioutil"
 	"net/http"
-	"os
+	"os"
 
 	log "github.com/sirupsen/logrus"
 	"github.com/elazarl/goproxy"
