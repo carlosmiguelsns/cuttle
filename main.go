@@ -93,13 +93,13 @@ func main() {
 		func(r *http.Request, ctx *goproxy.ProxyCtx) (*http.Request, *http.Response) {
 			// Transparent HTTP proxy with filter by user agent
 			// parse user agent string
-			req_ua := r.UserAgent()
-			ua := user_agent.New(req_ua)
-			bro_name, _ := ua.Browser()
-			allowed_ua := strings.Contains(req_ua, "ISV|BindTuning") || strings.Contains(req_ua, "NONISV|SharePointPnP")
-			if ua.Bot() || bro_name == "curl" || !allowed_ua {
-				return r, goproxy.NewResponse(r, goproxy.ContentTypeText, http.StatusForbidden, "Don't waste your time!")
-			}
+			// req_ua := r.UserAgent()
+			// ua := user_agent.New(req_ua)
+			// bro_name, _ := ua.Browser()
+			// allowed_ua := strings.Contains(req_ua, "ISV|BindTuning") || strings.Contains(req_ua, "NONISV|SharePointPnP")
+			// if ua.Bot() || bro_name == "curl" || !allowed_ua {
+				// return r, goproxy.NewResponse(r, goproxy.ContentTypeText, http.StatusForbidden, "Don't waste your time!")
+			// }
 
 			var zone *cuttle.Zone
 			for _, z := range zones {
