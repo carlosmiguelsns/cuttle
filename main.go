@@ -5,14 +5,12 @@ import (
 	"flag"
 	"io/ioutil"
 	"net/http"
-	"os"
-	"strings"
+	"os
 
 	log "github.com/sirupsen/logrus"
 	"github.com/elazarl/goproxy"
 	yaml "gopkg.in/yaml.v2"
 
-	"github.com/mssola/user_agent"
 	"github.com/carlosmiguelsns/cuttle/cuttle"
 )
 
