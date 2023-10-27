@@ -10,7 +10,9 @@ Quickstart
 ----------
 
 ```
-GOPATH=`pwd` go get github.com/mrkschan/cuttle
+GOPATH=`pwd` go get github.com/mrkschan/cuttle --> DEPRECATED
+
+go install github.com/mrkschan/cuttle@latest
 bin/cuttle -f src/github.com/mrkschan/cuttle/cuttle.yml
 ```
 
